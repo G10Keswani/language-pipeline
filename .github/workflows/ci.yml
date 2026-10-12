@@ -14,8 +14,13 @@ jobs:
       - name: Open the notebook
         uses: actions/checkout@v4
 
-      - name: Say hello
-        run: echo "Hello! I am checking your homework."
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-      - name: List the files
-        run: ls -la
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run the tests
+        run: pytest -v
