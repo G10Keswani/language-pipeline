@@ -1,0 +1,21 @@
+name: My Robot Teacher
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  check-homework:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open the notebook
+        uses: actions/checkout@v4
+
+      - name: Say hello
+        run: echo "Hello! I am checking your homework."
+
+      - name: List the files
+        run: ls -la
